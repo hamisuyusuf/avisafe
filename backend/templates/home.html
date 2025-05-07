@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Blog Generator</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        
+    </style>
+</head>
+<body class="flex flex-col min-h-scrren bg-gray-100 font-sans antialised">
+    <!-- Navbar -->
+    <nav class="bg-green-600 p-4  text-white flex justify-between">
+        <div>
+            <a href="/">
+                <h1 class="text-3xl font-bold">AI BG</h1>
+                </a>
+        </div>
+        <div>
+            <a href="#" class="text-white hover:underline mx-4"> Welcome {{user.username}}</a>
+            <a href="/about" class="text-white hover:underline mx-4"> Saved Blog Posts</a>
+            <a href="logout" class="text-white hover:underline"> Logout</a>
+        </div>
+
+    </nav>
+
+
+    <br>
+    <br>
+
+    <!-- Main -->
+    <div class="flex-grow container mx-auto mt-10 px-4 sm:px-0">
+        <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 flex flex-col">
+
+            <!-- Introduction section -->
+            <div class="text-center">
+                <h2 class="text-2xl font-semibold mb-4">Early Detection of Poultry Disease</h2>
+                <p class="text-gray-700">
+                    Detect disease in your Poultry flock using sound and image analysis.
+                </p>
+            </div>
+
+            <br>
+
+            
+            <div>
+                <div class="flex space-x-4"></div>
+                    <button id="generateBlogButton" class="bg-green-600 text-white px-4 py-2 rounded-r-md hover:bg-green-700 -colors">Get Started</button>
+                </div>
+            
+        </div>
+    </div>
+
+
+    <footer class="text-center p-4 text-black mt-6">
+        Powered by <a href="https://www.youtube.com/@Wero_Tech">WERO_TECH </a>
+    </footer>
+
+    <script>
+        
+    </script>
+</body>
+</html>

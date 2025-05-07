@@ -1,3 +1,4 @@
+#!/bin/usr/python3
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
@@ -6,34 +7,39 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.conf import settings
 import json
+import os 
+
+
+# Here are my views.
 
 
 @login_required
-def index(request):
-    return render(request, 'index.html')
+def home(request):
+    return render(request, 'home.html')
 
 
+#login auth
 def user_login(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST['username']
+        password = request.POST['password']
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             return redirect('/')
         else:
-            error_message = 'Invalid username or password'
-            return render(request, 'login.html', {'error': error_message})
-    
+            error_message = "Invalid username or password"
+            return render(request, 'login.html', {'error_message':error_message})
+
     return render(request, 'login.html')
 
-
+#signup auth
 def user_signup(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        email = request.POST.get('email')
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
         repeatpassword = request.POST['repeatpassword']
 
         if password == repeatpassword:
@@ -50,8 +56,8 @@ def user_signup(request):
             return render(request, 'signup.html', {'error_message':error_message})
     return render(request, 'signup.html')
 
-def about(request):
-    return render(request, 'about.html')
+def about_us(request):
+    return render(request, 'aboutus.html')
 
 def user_logout(request):
     logout(request)
